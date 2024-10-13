@@ -1,15 +1,15 @@
-# Copyright (C) 2021 Rahul Prajapati
+# Copyright (C) 2024 Rahul Prajapati
 # This file is distributed under the GPL2+.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Plugin Template 1.0.0\n"
+"Project-Id-Version: Sharable Unpublish Preview 0.1.0\n"
 "Report-Msgid-Bugs-To: "
-"https://github.com/rahulsprajapati/wp-plugin-template/issues\n"
-"POT-Creation-Date: 2021-09-22 10:50:21+00:00\n"
+"https://github.com/rahulsprajapati/sharable-unpublish-preview/issues\n"
+"POT-Creation-Date: 2024-10-13 16:18:51+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2021-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Rahul Prajapati <rahul.prajapati@live.in>\n"
 "Language-Team: Dev\n"
 "Language: en\n"
@@ -25,34 +25,37 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: inc/namespace.php:60
+#: inc/namespace.php:61
 msgid ""
 "Plugin can't be loaded, It requires following plugins to be installed and "
 "activated."
 msgstr ""
 
-#: inc/namespace.php:64
+#: inc/namespace.php:65
 msgid "Plugin 1"
 msgstr ""
 
-#: inc/namespace.php:68
+#: inc/namespace.php:69
 msgid "Plugin 2"
 msgstr ""
 
-#: inc/namespace.php:71
+#: inc/namespace.php:72
 msgid "Please verify the dependency to enable this field type."
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "WP Plugin Template"
+msgid "Sharable Unpublish Preview"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://github.com/rahulsprajapati/wp-plugin-template"
+msgid "https://github.com/rahulsprajapati/sharable-unpublish-preview"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Plugin Description..."
+msgid ""
+"WordPress Plugin to generate a shareable preview link for unpublished "
+"WordPress posts, enabling easy content previews without any account or "
+"login."
 msgstr ""
 
 #. Author of the plugin/theme

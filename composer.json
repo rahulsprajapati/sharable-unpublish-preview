@@ -1,6 +1,6 @@
 {
-  "name": "rahulsprajapati/wp-plugin-template",
-  "description": "wp-plugin-template",
+  "name": "rahulsprajapati/sharable-unpublish-preview",
+  "description": "sharable-unpublish-preview",
   "authors": [
     {
       "name": "Rahul Prajapati",
@@ -11,16 +11,21 @@
   ],
   "type": "wordpress-plugin",
   "prefer-stable": true,
-  "homepage": "https://github.com/rahulsprajapati/wp-plugin-template",
+  "homepage": "https://github.com/rahulsprajapati/sharable-unpublish-preview",
   "support": {
-    "issues": "https://github.com/rahulsprajapati/wp-plugin-template/issues",
-    "source": "https://github.com/rahulsprajapati/wp-plugin-template/"
+    "issues": "https://github.com/rahulsprajapati/sharable-unpublish-preview/issues",
+    "source": "https://github.com/rahulsprajapati/sharable-unpublish-preview/"
   },
   "minimum-stability": "dev",
   "require-dev": {
-    "automattic/vipwpcs": "^2.3",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+    "automattic/vipwpcs": "^3.0",
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
     "phpcompatibility/php-compatibility": "^9.3",
     "wp-phpunit/wp-phpunit": "^5.8"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }

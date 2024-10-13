@@ -2,24 +2,24 @@
 /**
  * Test for Plugin.
  *
- * @package wp-plugin-template
+ * @package sharable-unpublish-preview
  */
 
-namespace WP_Plugin_Template\Tests;
+namespace SharableUnpublishPreview\Tests;
 
 use WP_UnitTestCase;
 
 /**
- * WP_Plugin_Template test case.
+ * SharableUnpublishPreview test case.
  */
-class WP_Plugin_Template extends WP_UnitTestCase {
+class SharableUnpublishPreview extends WP_UnitTestCase {
 	
 	/**
 	 * Test bootstrap.
 	 */
 	public function test_bootstrap() {
-		$this->assertEquals( 10, has_action( 'plugins_loaded', 'WP_Plugin_Template\\load_textdomain' ) );
-		$this->assertEquals( 10, has_action( 'plugins_loaded', 'WP_Plugin_Template\\activate_plugin' ) );
+		$this->assertEquals( 10, has_action( 'plugins_loaded', 'SharableUnpublishPreview\\load_textdomain' ) );
+		$this->assertEquals( 10, has_action( 'plugins_loaded', 'SharableUnpublishPreview\\activate_plugin' ) );
 	}
 
 }

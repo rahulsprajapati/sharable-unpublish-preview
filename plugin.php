@@ -1,21 +1,21 @@
 <?php
 /**
- * Plugin Name: WP Plugin Template
- * Plugin URI: https://github.com/rahulsprajapati/wp-plugin-template
- * Description: Plugin Description...
+ * Plugin Name: Sharable Unpublish Preview
+ * Plugin URI: https://github.com/rahulsprajapati/sharable-unpublish-preview
+ * Description: WordPress Plugin to generate a shareable preview link for unpublished WordPress posts, enabling easy content previews without any account or login.
  * Author: Rahul Prajapati
- * Version: 1.0.0
+ * Version: 0.1.0
  * Author URI: https://github.com/rahulsprajapati
  * License: GPL2+
- * Text Domain: wp-plugin-template
+ * Text Domain: sharable-unpublish-preview
  * Domain Path: /languages
  *
- * @package wp-plugin-template
+ * @package sharable-unpublish-preview
  */
 
-namespace WP_Plugin_Template;
+namespace SharableUnpublishPreview;
 
-const VERSION = '0.0.1';
+const VERSION = '0.1.0';
 
 require_once __DIR__ . '/inc/namespace.php';
 bootstrap();

@@ -1,11 +1,11 @@
 <?php
 /**
- * WP_Plugin_Template Namespace.
+ * SharableUnpublishPreview Namespace.
  *
- * @package wp-plugin-template
+ * @package sharable-unpublish-preview
  */
 
-namespace WP_Plugin_Template;
+namespace SharableUnpublishPreview;
 
 /**
  * Hook up all the filters and actions.
@@ -24,7 +24,7 @@ function bootstrap() {
 function load_textdomain() {
 
 	load_plugin_textdomain(
-		'wp-plugin-template',
+		'sharable-unpublish-preview',
 		false,
 		basename( plugin_dir_url( __DIR__ ) ) . '/languages'
 	);
@@ -58,18 +58,18 @@ function activate_plugin() {
 function dependency_admin_notice() {
 	
 	echo '<div class="error"><p>';
-	esc_html_e( 'Plugin can\'t be loaded, It requires following plugins to be installed and activated.', 'wp-plugin-template' );
+	esc_html_e( 'Plugin can\'t be loaded, It requires following plugins to be installed and activated.', 'sharable-unpublish-preview' );
 		echo '<ol>';
 			printf(
 				'<li><a href="https://wordpress.org/plugins/plugin-1" target="_blank">%s</a></li>',
-				esc_html__( 'Plugin 1', 'wp-plugin-template' )
+				esc_html__( 'Plugin 1', 'sharable-unpublish-preview' )
 			);
 			printf(
 				' <li><a href="https://wordpress.org/plugins/plugin-2" target="_blank">%s</a></li>',
-				esc_html__( 'Plugin 2', 'wp-plugin-template' )
+				esc_html__( 'Plugin 2', 'sharable-unpublish-preview' )
 			);
 		echo '</ol>';
-	esc_html_e( 'Please verify the dependency to enable this field type.', 'wp-plugin-template' );
+	esc_html_e( 'Please verify the dependency to enable this field type.', 'sharable-unpublish-preview' );
 	echo '</p></div>';
 }
 
@@ -94,15 +94,15 @@ function admin_enqueue_scripts( $hook ) {
 	}
 
 	wp_enqueue_style(
-		'wp-plugin-template-admin-css',
-		plugin_dir_url( __FILE__ ) . 'assets/css/wp-plugin-template-admin.css',
+		'sharable-unpublish-preview-admin-css',
+		plugin_dir_url( __FILE__ ) . 'assets/css/sharable-unpublish-preview-admin.css',
 		[],
 		VERSION
 	);
 
 	wp_enqueue_script(
-		'wp-plugin-template-admin-js',
-		plugin_dir_url( __FILE__ ) . 'assets/js/wp-plugin-template-admin.js',
+		'sharable-unpublish-preview-admin-js',
+		plugin_dir_url( __FILE__ ) . 'assets/js/sharable-unpublish-preview-admin.js',
 		[
 			'wp-util',
 		],
@@ -119,15 +119,15 @@ function admin_enqueue_scripts( $hook ) {
 function enqueue_scripts( $hook ) {
 
 	wp_enqueue_style(
-		'wp-plugin-template-css',
-		plugin_dir_url( __FILE__ ) . 'assets/css/wp-plugin-template.css',
+		'sharable-unpublish-preview-css',
+		plugin_dir_url( __FILE__ ) . 'assets/css/sharable-unpublish-preview.css',
 		[],
 		VERSION
 	);
 
 	wp_enqueue_script(
-		'wp-plugin-template-js',
-		plugin_dir_url( __FILE__ ) . 'assets/js/wp-plugin-template.js',
+		'sharable-unpublish-preview-js',
+		plugin_dir_url( __FILE__ ) . 'assets/js/sharable-unpublish-preview.js',
 		[
 			'wp-util',
 		],

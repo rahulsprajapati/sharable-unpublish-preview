@@ -2,7 +2,7 @@
 /**
  * PHPUnit bootstrap file
  *
- * @package wp-plugin-template
+ * @package sharable-unpublish-preview
  */
 
 // Require composer dependencies.
