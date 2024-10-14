@@ -17,5 +17,5 @@ namespace SharableUnpublishPreview;
 
 const VERSION = '0.1.0';
 
-require_once __DIR__ . '/inc/namespace.php';
+require_once __DIR__ . '/src/namespace.php';
 bootstrap();
