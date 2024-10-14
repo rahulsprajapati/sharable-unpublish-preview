@@ -14,8 +14,7 @@ function bootstrap() {
 
 	// Bootstrap plugin functionality...
 	add_action( 'plugins_loaded', __NAMESPACE__ . '\\load_textdomain' );
-	add_action( 'plugins_loaded', __NAMESPACE__ . '\\activate_plugin' );
-
+	add_action( 'plugins_loaded', __NAMESPACE__ . '\\load_plugin' );
 }
 
 /**
@@ -28,49 +27,6 @@ function load_textdomain() {
 		false,
 		basename( plugin_dir_url( __DIR__ ) ) . '/languages'
 	);
-}
-
-/**
- * Dependency check before loading the plugin if any.
- */
-function is_dependency_loaded() {
-
-	return true;
-}
-
-/**
- * Load plugin functionality if dependency are loaded correctly.
- */
-function activate_plugin() {
-
-	if ( ! is_dependency_loaded() ) {
-		add_action( 'admin_notices', __NAMESPACE__ . '\\dependency_admin_notice' );
-		add_action( 'network_admin_notices', __NAMESPACE__ . '\\dependency_admin_notice' );
-		return;
-	}
-
-	load_plugin();
-}
-
-/**
- * Plugin dependency error message for admin notice.
- */
-function dependency_admin_notice() {
-	
-	echo '<div class="error"><p>';
-	esc_html_e( 'Plugin can\'t be loaded, It requires following plugins to be installed and activated.', 'sharable-unpublish-preview' );
-		echo '<ol>';
-			printf(
-				'<li><a href="https://wordpress.org/plugins/plugin-1" target="_blank">%s</a></li>',
-				esc_html__( 'Plugin 1', 'sharable-unpublish-preview' )
-			);
-			printf(
-				' <li><a href="https://wordpress.org/plugins/plugin-2" target="_blank">%s</a></li>',
-				esc_html__( 'Plugin 2', 'sharable-unpublish-preview' )
-			);
-		echo '</ol>';
-	esc_html_e( 'Please verify the dependency to enable this field type.', 'sharable-unpublish-preview' );
-	echo '</p></div>';
 }
 
 /**
