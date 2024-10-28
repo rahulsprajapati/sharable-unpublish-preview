@@ -2,7 +2,7 @@
 /**
  * PHPUnit bootstrap file
  *
- * @package sharable-unpublish-preview
+ * @package share-post-preview
  */
 
 // Require composer dependencies.

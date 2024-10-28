@@ -1,6 +1,6 @@
 {
-  "name": "rahulsprajapati/sharable-unpublish-preview",
-  "description": "sharable-unpublish-preview",
+  "name": "rahulsprajapati/share-post-preview",
+  "description": "share-post-preview",
   "authors": [
     {
       "name": "Rahul Prajapati",
@@ -11,10 +11,10 @@
   ],
   "type": "wordpress-plugin",
   "prefer-stable": true,
-  "homepage": "https://github.com/rahulsprajapati/sharable-unpublish-preview",
+  "homepage": "https://github.com/rahulsprajapati/share-post-preview",
   "support": {
-    "issues": "https://github.com/rahulsprajapati/sharable-unpublish-preview/issues",
-    "source": "https://github.com/rahulsprajapati/sharable-unpublish-preview/"
+    "issues": "https://github.com/rahulsprajapati/share-post-preview/issues",
+    "source": "https://github.com/rahulsprajapati/share-post-preview/"
   },
   "minimum-stability": "dev",
   "require-dev": {

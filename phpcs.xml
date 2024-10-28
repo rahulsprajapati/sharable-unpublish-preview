@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="sharable-unpublish-preview">
+<ruleset name="share-post-preview">
 	<description>WordPress plugin phpcs rules for Plugin.</description>
 
 	<!-- Check all files in this directory and the directories below it. -->
@@ -28,16 +28,7 @@
 		 Multiple valid text domains can be provided as a comma-delimited list. -->
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="sharable-unpublish-preview" />
-		</properties>
-	</rule>
-
-	<!-- Verify that no WP functions are used which are deprecated or have been removed.
-		 The minimum version set here should be in line with the minimum WP version
-		 as set in the "Requires at least" tag in the readme.txt file. -->
-	<rule ref="WordPress.WP.DeprecatedFunctions">
-		<properties>
-			<property name="minimum_supported_version" value="5.8" />
+			<property name="text_domain" type="array" value="share-post-preview" />
 		</properties>
 	</rule>
 

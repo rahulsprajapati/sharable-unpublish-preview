@@ -2,24 +2,24 @@
 /**
  * Test for Plugin.
  *
- * @package sharable-unpublish-preview
+ * @package share-post-preview
  */
 
-namespace SharableUnpublishPreview\Tests;
+namespace SharePostPreview\Tests;
 
 use WP_UnitTestCase;
 
 /**
- * SharableUnpublishPreview test case.
+ * SharePostPreview test case.
  */
-class SharableUnpublishPreview extends WP_UnitTestCase {
-	
+class SharePostPreview extends WP_UnitTestCase {
+
 	/**
 	 * Test bootstrap.
 	 */
 	public function test_bootstrap() {
-		$this->assertEquals( 10, has_action( 'plugins_loaded', 'SharableUnpublishPreview\\load_textdomain' ) );
-		$this->assertEquals( 10, has_action( 'plugins_loaded', 'SharableUnpublishPreview\\activate_plugin' ) );
+		$this->assertEquals( 10, has_action( 'plugins_loaded', 'SharePostPreview\\load_textdomain' ) );
+		$this->assertEquals( 10, has_action( 'plugins_loaded', 'SharePostPreview\\load_plugin' ) );
 	}
 
 }
