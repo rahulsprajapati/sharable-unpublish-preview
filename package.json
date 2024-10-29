@@ -10,6 +10,7 @@
   "scripts": {
     "watch": "wp-scripts start",
     "build": "wp-scripts build",
+    "plugin-zip": "wp-scripts plugin-zip",
     "lint-js": "wp-scripts lint-js ./src",
     "lint-js-fix": "wp-scripts format-js ./src",
     "makepot": "grunt makepot",
@@ -30,6 +31,18 @@
     "coverage-html": "wp-env run phpunit 'phpdbg -qrr /usr/local/bin/phpunit -c /var/www/html/wp-content/plugins/share-post-preview/phpunit.xml.dist --coverage-html=/var/www/html/wp-content/plugins/share-post-preview/tests/coverage/html'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+		"build",
+		"languages",
+		"screenshots",
+		"src",
+		"vendor",
+		"composer.json",
+		"composer.lock",
+		"package.json",
+		"plugin.php",
+		"readme.txt"
+	],
   "author": "",
   "license": "ISC",
   "dependencies": {
