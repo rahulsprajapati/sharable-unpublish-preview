@@ -74,6 +74,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+/**
+ * Get TimeStamp with WP Settings Timezone..
+ *
+ * @param {*} dateObj Date object.
+ * @param {*} nextDays Number of days to add.
+ *
+ * @returns
+ */
+
 const getWPTimeStamp = (dateObj = 'now', nextDays = 0) => {
   const {
     timezone
@@ -103,10 +112,10 @@ function SharePostPreview() {
     meta
   } = (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_2__.useSelect)(select => {
     const editor = select('core/editor');
-    const previewLink = editor?.getEditedPostAttribute('preview_link') || '';
+    const previewLink = editor?.getEditedPostPreviewLink() || '';
     return {
       postID: editor?.getCurrentPostId() || 0,
-      previewLink: previewLink ? previewLink + '&preview=true' : '',
+      previewLink: previewLink ? previewLink : '',
       postStatus: editor?.getEditedPostAttribute('status') || '',
       meta: editor?.getEditedPostAttribute('meta') || {}
     };

@@ -91,7 +91,7 @@ function enqueue_scripts() {
 		return;
 	}
 
-	$script_data = include plugin_path( 'dist/index.asset.php' );
+	$script_data = include plugin_path( 'build/index.asset.php' );
 
 	wp_enqueue_script(
 		'share-post-preview-js',

@@ -46,10 +46,10 @@ function SharePostPreview() {
 	const { editPost } = useDispatch( 'core/editor' );
 	const { postID, previewLink, postStatus, meta } = useSelect( ( select ) => {
 		const editor = select( 'core/editor' );
-		const previewLink = editor?.getEditedPostAttribute( 'preview_link' ) || '';
+		const previewLink = editor?.getEditedPostPreviewLink() || '';
 		return {
 			postID: editor?.getCurrentPostId() || 0,
-			previewLink: previewLink ? previewLink + '&preview=true' : '',
+			previewLink: previewLink ? previewLink : '',
 			postStatus: editor?.getEditedPostAttribute( 'status' ) || '',
 			meta: editor?.getEditedPostAttribute( 'meta' ) || {},
 		};
