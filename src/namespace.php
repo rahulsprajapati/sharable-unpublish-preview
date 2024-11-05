@@ -223,10 +223,10 @@ function set_post_to_publish( $posts, $query ) {
 	$post = empty( $posts[0] ) ? null : $posts[0];
 
 	$is_preview_request = (
-	 	$query->is_main_query()
-		&& ! $query->is_preview()
-		&& ! $query->is_singular()
-		&& ! $query->get( 'spp_token' )
+		$query->is_main_query()
+		&& $query->is_preview()
+		&& $query->is_singular()
+		&& $query->get( 'spp_token' )
 	);
 
 	$is_preview_request = apply_filters( 'is_share_post_preview_request', $is_preview_request, $post, $query );
