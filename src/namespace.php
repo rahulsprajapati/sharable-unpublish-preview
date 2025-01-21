@@ -12,8 +12,8 @@ namespace SharePostPreview;
  */
 function bootstrap() {
 
-	add_action( 'plugins_loaded', __NAMESPACE__ . '\\load_textdomain' );
-	add_action( 'plugins_loaded', __NAMESPACE__ . '\\load_plugin' );
+	add_action( 'plugins_loaded', __NAMESPACE__ . '\\load_textdomain', 10, 0 );
+	add_action( 'plugins_loaded', __NAMESPACE__ . '\\load_plugin', 10, 0 );
 }
 
 /**
@@ -32,9 +32,9 @@ function load_textdomain() {
  * Load Plugin.
  */
 function load_plugin() {
-	add_action( 'init', __NAMESPACE__ . '\\register_rest_post_meta', 11 );
-	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_scripts', 11 );
-	add_action( 'wp_ajax_get_share_post_preview_token', __NAMESPACE__ . '\\get_share_post_preview_token' );
+	add_action( 'init', __NAMESPACE__ . '\\register_rest_post_meta', 11, 0 );
+	add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_scripts', 11, 0 );
+	add_action( 'wp_ajax_get_share_post_preview_token', __NAMESPACE__ . '\\get_share_post_preview_token', 10, 0 );
 
 	add_action( 'query_vars', __NAMESPACE__ . '\\add_share_preview_query_var' );
 	add_filter( 'posts_results', __NAMESPACE__ . '\\set_post_to_publish', 12, 2 );
@@ -69,7 +69,7 @@ function register_rest_post_meta() {
 			'single'       => true,
 			'type'         => 'boolean',
 		],
-		'spp_expire' => [
+		'spp_expire'         => [
 			'show_in_rest' => true,
 			'single'       => true,
 			'type'         => 'string',
@@ -91,6 +91,7 @@ function enqueue_scripts() {
 		return;
 	}
 
+	// phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomFunction
 	$script_data = include plugin_path( 'build/index.asset.php' );
 
 	wp_enqueue_script(
@@ -152,7 +153,9 @@ function is_valid_token( $token, $action = -1, $expire = 0 ) {
 function is_valid_preview( $post, $request_token = '' ) {
 
 	if ( empty( $request_token ) ) {
-		$request_token = filter_input( INPUT_GET, 'spp_token', FILTER_SANITIZE_STRING );
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$request_token = empty( $_GET['spp_token'] ) ? '' : wp_unslash( $_GET['spp_token'] );
+		$request_token = $request_token ? sanitize_text_field( $request_token ) : '';
 	}
 
 	if ( empty( $request_token ) ) {
@@ -160,7 +163,7 @@ function is_valid_preview( $post, $request_token = '' ) {
 	}
 
 	$is_enable_preview = get_post_meta( $post->ID, 'spp_enable_preview', true );
-	$expire = get_post_meta( $post->ID, 'spp_expire', true );
+	$expire            = get_post_meta( $post->ID, 'spp_expire', true );
 
 	if ( empty( $is_enable_preview ) || empty( $expire ) ) {
 		return -1;
@@ -188,7 +191,7 @@ function is_valid_preview( $post, $request_token = '' ) {
  */
 function get_share_post_preview_token() {
 	$post_id = filter_input( INPUT_POST, 'post_id', FILTER_SANITIZE_NUMBER_INT );
-	$expire = filter_input( INPUT_POST, 'expire', FILTER_SANITIZE_SPECIAL_CHARS );
+	$expire  = filter_input( INPUT_POST, 'expire', FILTER_SANITIZE_SPECIAL_CHARS );
 
 	if ( empty( $post_id ) || empty( $expire ) ) {
 		wp_send_json_error( __( 'Invalid request.', 'share-post-preview' ) );
@@ -223,7 +226,7 @@ function set_post_to_publish( $posts, $query ) {
 	$post = empty( $posts[0] ) ? null : $posts[0];
 
 	$preview_post_id = filter_input( INPUT_GET, 'preview_id', FILTER_VALIDATE_INT );
-	
+
 	$is_preview_request = (
 		$query->is_main_query()
 		&& $query->is_preview()
@@ -232,11 +235,12 @@ function set_post_to_publish( $posts, $query ) {
 	);
 
 	$is_preview_request = apply_filters( 'is_share_post_preview_request', $is_preview_request, $post, $query );
+	$post_types         = get_supported_post_types();
 
 	if (
 		empty( $post )
 		|| ! $post instanceof \WP_Post
-		|| 'publish' === $post->post_status
+		|| ! in_array( $post->post_type, $post_types, true )
 		|| ! $is_preview_request
 		|| empty( $preview_post_id )
 		|| $preview_post_id !== $post->ID
@@ -267,8 +271,8 @@ function set_post_to_publish( $posts, $query ) {
 	$posts[0] = $post;
 
 	// Disable comments and pings for this post.
-	add_filter( 'comments_open', '__return_false' );
-	add_filter( 'pings_open', '__return_false' );
+	add_filter( 'comments_open', '__return_false', 10, 0 );
+	add_filter( 'pings_open', '__return_false', 10, 0 );
 
 	return $posts;
 }
