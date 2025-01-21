@@ -222,6 +222,8 @@ function set_post_to_publish( $posts, $query ) {
 
 	$post = empty( $posts[0] ) ? null : $posts[0];
 
+	$preview_post_id = filter_input( INPUT_GET, 'preview_id', FILTER_VALIDATE_INT );
+	
 	$is_preview_request = (
 		$query->is_main_query()
 		&& $query->is_preview()
@@ -236,6 +238,8 @@ function set_post_to_publish( $posts, $query ) {
 		|| ! $post instanceof \WP_Post
 		|| 'publish' === $post->post_status
 		|| ! $is_preview_request
+		|| empty( $preview_post_id )
+		|| $preview_post_id !== $post->ID
 	) {
 		return $posts;
 	}
